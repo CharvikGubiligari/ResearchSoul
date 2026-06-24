@@ -1,0 +1,23 @@
+{
+  "name": "researchsoul",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:api": "npm run dev -w @researchsoul/api",
+    "dev:web": "npm run dev -w @researchsoul/web",
+    "build": "npm run build -w @researchsoul/shared && npm run build -w @researchsoul/llm && npm run build -w @researchsoul/api && npm run build -w @researchsoul/web",
+    "db:generate": "npm run db:generate -w @researchsoul/api",
+    "db:migrate": "npm run db:migrate -w @researchsoul/api",
+    "db:push": "npm run db:push -w @researchsoul/api",
+    "docker:up": "docker compose -f infrastructure/docker/docker-compose.yml up -d",
+    "docker:down": "docker compose -f infrastructure/docker/docker-compose.yml down"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
