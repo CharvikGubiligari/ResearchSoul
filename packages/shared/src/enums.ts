@@ -1,0 +1,222 @@
+// All enums — PDF-complete
+
+export enum OrgRole {
+  OWNER = 'OWNER',
+  MEMBER = 'MEMBER',
+  VIEWER = 'VIEWER',
+}
+
+export enum UsageEventType {
+  LLM_TOKENS = 'LLM_TOKENS',
+  RETRIEVAL_CALL = 'RETRIEVAL_CALL',
+  STORAGE_BYTES = 'STORAGE_BYTES',
+  RESEARCH_RUN = 'RESEARCH_RUN',
+}
+
+export enum JobStatus {
+  PENDING = 'PENDING',
+  ACTIVE = 'ACTIVE',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+}
+
+export enum ResearchType {
+  MARKET_ANALYSIS = 'MARKET_ANALYSIS',
+  COMPETITIVE_INTEL = 'COMPETITIVE_INTEL',
+  INVESTMENT_MEMO = 'INVESTMENT_MEMO',
+  TECHNICAL_REVIEW = 'TECHNICAL_REVIEW',
+  LEGAL_REGULATORY = 'LEGAL_REGULATORY',
+  CUSTOM = 'CUSTOM',
+}
+
+export enum ResearchDepth {
+  QUICK_SCAN = 'QUICK_SCAN',
+  STANDARD = 'STANDARD',
+  DEEP_DIVE = 'DEEP_DIVE',
+}
+
+export enum ResearchOutputType {
+  EXECUTIVE_SUMMARY = 'EXECUTIVE_SUMMARY',
+  DEEP_REPORT = 'DEEP_REPORT',
+  INVESTMENT_MEMO = 'INVESTMENT_MEMO',
+  MARKET_REPORT = 'MARKET_REPORT',
+  TECHNICAL_REVIEW = 'TECHNICAL_REVIEW',
+  SWOT = 'SWOT',
+  PESTLE = 'PESTLE',
+  PORTER_FIVE_FORCES = 'PORTER_FIVE_FORCES',
+  COMPETITIVE_MATRIX = 'COMPETITIVE_MATRIX',
+  LANDSCAPE_ANALYSIS = 'LANDSCAPE_ANALYSIS',
+}
+
+export enum ResearchPriority {
+  LOW = 'LOW',
+  NORMAL = 'NORMAL',
+  HIGH = 'HIGH',
+  URGENT = 'URGENT',
+}
+
+export enum ResearchStatus {
+  DRAFT = 'DRAFT',
+  PENDING = 'PENDING',
+  PLANNING = 'PLANNING',
+  RUNNING = 'RUNNING',
+  SYNTHESIZING = 'SYNTHESIZING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+  CANCELLED = 'CANCELLED',
+  PAUSED = 'PAUSED',
+}
+
+export enum ExecutionStatus {
+  PENDING = 'PENDING',
+  PLANNING = 'PLANNING',
+  RUNNING = 'RUNNING',
+  SYNTHESIZING = 'SYNTHESIZING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+  CANCELLED = 'CANCELLED',
+  PAUSED = 'PAUSED',
+}
+
+export enum TaskStatus {
+  PENDING = 'PENDING',
+  READY = 'READY',
+  RUNNING = 'RUNNING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+  SKIPPED = 'SKIPPED',
+  CANCELLED = 'CANCELLED',
+}
+
+export enum AgentType {
+  MARKET = 'MARKET',
+  COMPETITOR = 'COMPETITOR',
+  FUNDING = 'FUNDING',
+  CUSTOMER = 'CUSTOMER',
+  TECHNOLOGY = 'TECHNOLOGY',
+  PATENT = 'PATENT',
+  ACADEMIC = 'ACADEMIC',
+  NEWS = 'NEWS',
+  FINANCIAL = 'FINANCIAL',
+  PRODUCT = 'PRODUCT',
+  LEGAL = 'LEGAL',
+  TREND = 'TREND',
+}
+
+export enum AgentRunStatus {
+  REGISTERED = 'REGISTERED',
+  IDLE = 'IDLE',
+  RUNNING = 'RUNNING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+}
+
+export enum SourceType {
+  GOOGLE = 'GOOGLE',
+  BING = 'BING',
+  NEWS = 'NEWS',
+  ARXIV = 'ARXIV',
+  PUBMED = 'PUBMED',
+  REDDIT = 'REDDIT',
+  GITHUB = 'GITHUB',
+  CRUNCHBASE = 'CRUNCHBASE',
+  SEC = 'SEC',
+  WIKIPEDIA = 'WIKIPEDIA',
+  BLOG = 'BLOG',
+  RSS = 'RSS',
+  YOUTUBE = 'YOUTUBE',
+  PODCAST = 'PODCAST',
+  WHITEPAPER = 'WHITEPAPER',
+  BOOK = 'BOOK',
+  INTERNAL_DOC = 'INTERNAL_DOC',
+  PDF = 'PDF',
+  CSV = 'CSV',
+  EXCEL = 'EXCEL',
+  COMPANY_WEBSITE = 'COMPANY_WEBSITE',
+  PATENT_DB = 'PATENT_DB',
+}
+
+export enum DocumentType {
+  WEB = 'WEB',
+  NEWS = 'NEWS',
+  PAPER = 'PAPER',
+  FILING = 'FILING',
+  SOCIAL = 'SOCIAL',
+  CODE = 'CODE',
+  PATENT = 'PATENT',
+  VIDEO = 'VIDEO',
+  PODCAST = 'PODCAST',
+  BOOK = 'BOOK',
+  INTERNAL = 'INTERNAL',
+  SPREADSHEET = 'SPREADSHEET',
+  PDF = 'PDF',
+  OTHER = 'OTHER',
+}
+
+export enum VerificationStatus {
+  VERIFIED = 'VERIFIED',
+  DISPUTED = 'DISPUTED',
+  UNVERIFIED = 'UNVERIFIED',
+  STALE = 'STALE',
+}
+
+export enum CitationStyle {
+  APA = 'APA',
+  MLA = 'MLA',
+  CHICAGO = 'CHICAGO',
+  IEEE = 'IEEE',
+  BLUEBOOK = 'BLUEBOOK',
+}
+
+export enum CitationMode {
+  INLINE = 'INLINE',
+  FOOTNOTE = 'FOOTNOTE',
+  ENDNOTE = 'ENDNOTE',
+}
+
+export enum EntityType {
+  COMPANY = 'COMPANY',
+  PERSON = 'PERSON',
+  PRODUCT = 'PRODUCT',
+  MARKET = 'MARKET',
+  TECHNOLOGY = 'TECHNOLOGY',
+  INVESTOR = 'INVESTOR',
+  COUNTRY = 'COUNTRY',
+  REGULATION = 'REGULATION',
+}
+
+export enum LlmTaskType {
+  PLANNING = 'PLANNING',
+  EXTRACTION = 'EXTRACTION',
+  VERIFICATION = 'VERIFICATION',
+  SYNTHESIS = 'SYNTHESIS',
+  REPORT = 'REPORT',
+  LONG_CONTEXT = 'LONG_CONTEXT',
+  CODE = 'CODE',
+}
+
+export enum ReportFormat {
+  PDF = 'PDF',
+  MARKDOWN = 'MARKDOWN',
+  DOCX = 'DOCX',
+}
+
+export interface ExecutionDAG {
+  nodes: DAGNode[];
+  edges: DAGEdge[];
+}
+
+export interface DAGNode {
+  id: string;
+  question: string;
+  subQuestion?: string;
+  agentType: AgentType;
+  sourceTypes: SourceType[];
+  expectedOutput: string;
+  dependencies: string[];
+}
+
+export interface DAGEdge {
+  from: string;
+  to: string;
+}

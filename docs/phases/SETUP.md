@@ -52,16 +52,18 @@ Terminal 2 — Web:
 npm run dev:web
 ```
 
-## 6. Verify Phase 0
+## 6. Verify Phase 1
 
 | Check | How |
 |-------|-----|
-| Health | http://localhost:3001/api/v1/health |
-| Sign up | http://localhost:3000/signup |
-| Create project | Dashboard → Create project |
-| Background job | Dashboard → Test background job |
-| LLM (mock) | Dashboard → Test LLM abstraction |
-| LLM (live) | Set `OPENAI_API_KEY` in `.env`, restart API |
+| Sign up / create project | http://localhost:3000/signup |
+| Start research | Dashboard → project → **+ Start research** |
+| Full intake form | All PDF fields: objective, type, depth, budget, deadline, language, country, audience, output type, priority, citations |
+| Monitor progress | Research detail page shows progress bar + agent events |
+| View report | Executive summary + deep report with citations |
+| Export | Markdown, DOCX, PDF buttons on report |
+| Agents API | GET /api/v1/agents (12 agents) |
+| Sources API | GET /api/v1/retrieval/sources (all PDF source types) |
 
 ## Google OAuth (optional)
 

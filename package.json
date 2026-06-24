@@ -10,7 +10,7 @@
     "dev": "npm run dev --workspaces --if-present",
     "dev:api": "npm run dev -w @researchsoul/api",
     "dev:web": "npm run dev -w @researchsoul/web",
-    "build": "npm run build -w @researchsoul/shared && npm run build -w @researchsoul/llm && npm run build -w @researchsoul/api && npm run build -w @researchsoul/web",
+    "build": "npm run build -w @researchsoul/shared && npm run build -w @researchsoul/llm && npm run build -w @researchsoul/retrieval && npm run build -w @researchsoul/evidence && npm run build -w @researchsoul/agents && npm run build -w @researchsoul/orchestrator && npm run build -w @researchsoul/api && npm run build -w @researchsoul/web",
     "db:generate": "npm run db:generate -w @researchsoul/api",
     "db:migrate": "npm run db:migrate -w @researchsoul/api",
     "db:push": "npm run db:push -w @researchsoul/api",

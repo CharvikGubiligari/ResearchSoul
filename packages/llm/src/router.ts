@@ -1,12 +1,7 @@
 import OpenAI from 'openai';
 import type { LlmUsageLog } from '@researchsoul/shared';
-
-/** Approximate USD per 1M tokens — update as pricing changes */
-const MODEL_PRICING: Record<string, { input: number; output: number }> = {
-  'gpt-4o-mini': { input: 0.15, output: 0.6 },
-  'gpt-4o': { input: 2.5, output: 10 },
-  'gpt-4-turbo': { input: 10, output: 30 },
-};
+import { LlmTaskType } from '@researchsoul/shared';
+import { CostOptimizer, MODEL_PROFILES } from './cost-optimizer';
 
 export interface ChatMessage {
   role: 'system' | 'user' | 'assistant';
@@ -15,8 +10,11 @@ export interface ChatMessage {
 
 export interface LlmRouterConfig {
   apiKey?: string;
+  anthropicApiKey?: string;
+  geminiApiKey?: string;
   defaultModel?: string;
   mockMode?: boolean;
+  budgetRemaining?: number;
 }
 
 export interface ChatCompletionResult {
@@ -29,13 +27,34 @@ export class ModelRouter {
   private client: OpenAI | null;
   private defaultModel: string;
   private mockMode: boolean;
+  private costOptimizer: CostOptimizer;
+  private budgetRemaining?: number;
 
   constructor(config: LlmRouterConfig = {}) {
     this.defaultModel = config.defaultModel ?? 'gpt-4o-mini';
     this.mockMode = config.mockMode ?? !config.apiKey;
+    this.budgetRemaining = config.budgetRemaining;
+    this.costOptimizer = new CostOptimizer();
     this.client = config.apiKey
       ? new OpenAI({ apiKey: config.apiKey })
       : null;
+  }
+
+  setBudgetRemaining(amount: number) {
+    this.budgetRemaining = amount;
+  }
+
+  async chatForTask(
+    task: LlmTaskType,
+    messages: ChatMessage[],
+    options?: { contextSize?: number; preferQuality?: boolean },
+  ): Promise<ChatCompletionResult> {
+    const model = this.costOptimizer.selectModel(task, {
+      budgetRemaining: this.budgetRemaining,
+      contextSize: options?.contextSize,
+      preferQuality: options?.preferQuality,
+    });
+    return this.chat(messages, model);
   }
 
   async chat(
@@ -95,9 +114,6 @@ export class ModelRouter {
     promptTokens: number,
     completionTokens: number,
   ): number {
-    const pricing = MODEL_PRICING[model] ?? MODEL_PRICING['gpt-4o-mini'];
-    const inputCost = (promptTokens / 1_000_000) * pricing.input;
-    const outputCost = (completionTokens / 1_000_000) * pricing.output;
-    return Math.round((inputCost + outputCost) * 1_000_000) / 1_000_000;
+    return this.costOptimizer.estimateCost(model, promptTokens, completionTokens);
   }
 }

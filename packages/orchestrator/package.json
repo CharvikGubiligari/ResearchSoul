@@ -1,0 +1,22 @@
+{
+  "name": "@researchsoul/orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@researchsoul/shared": "*",
+    "@researchsoul/llm": "*",
+    "@researchsoul/agents": "*",
+    "@researchsoul/retrieval": "*",
+    "@researchsoul/evidence": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

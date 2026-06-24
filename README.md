@@ -2,7 +2,7 @@
 
 **Research Operating System (ROS)** — Autonomous, evidence-backed research platform.
 
-> Status: **Phase 0 implemented** — Run [Setup Guide](./docs/phases/SETUP.md) to start locally.
+> Status: **Phase 1 implemented** — See [Setup Guide](./docs/phases/SETUP.md) and [Phase 1 PDF Checklist](./docs/phases/phase-1-pdf-checklist.md).
 
 ## What It Does
 
@@ -81,4 +81,4 @@ npm run dev:web   # terminal 2
 
 ## Next Step
 
-When Phase 0 is verified locally, proceed to **[Phase 1 — MVP](./docs/phases/phase-1-mvp.md)**.
+Verify Phase 1 locally, then proceed to **[Phase 2 — Research Workspace](./docs/phases/phase-2-workspace.md)**.

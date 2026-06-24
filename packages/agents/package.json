@@ -1,0 +1,20 @@
+{
+  "name": "@researchsoul/agents",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@researchsoul/shared": "*",
+    "@researchsoul/llm": "*",
+    "@researchsoul/retrieval": "*",
+    "@researchsoul/evidence": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

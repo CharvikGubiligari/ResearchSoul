@@ -13,6 +13,7 @@ import { StorageModule } from './modules/storage/storage.module';
 import { BillingModule } from './modules/billing/billing.module';
 import { JobsModule } from './modules/jobs/jobs.module';
 import { LlmModule } from './modules/llm/llm.module';
+import { ResearchModule } from './modules/research/research.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { LlmModule } from './modules/llm/llm.module';
     BillingModule,
     JobsModule,
     LlmModule,
+    ResearchModule,
   ],
   providers: [
     {

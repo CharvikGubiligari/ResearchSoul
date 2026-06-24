@@ -2,6 +2,8 @@
 
 **Goal:** End-to-end autonomous research: objective in → verified, cited report out.
 
+> **PDF coverage:** See [phase-1-pdf-checklist.md](./phase-1-pdf-checklist.md) for complete feature mapping.
+
 ## Core User Journey
 
 1. User creates project and submits research objective
@@ -15,58 +17,56 @@
 ## Deliverables
 
 ### Research Intake
-- [ ] Research request form (all intake fields)
-- [ ] Research entity persistence
-- [ ] Trigger planning job on submit
+- [x] Research request form (all intake fields)
+- [x] Research entity persistence
+- [x] Trigger planning job on submit
 
 ### Research Planning Engine (Moat #1)
-- [ ] LLM-based objective → DAG generation
-- [ ] DAG validation (acyclicity, agent/source mapping)
-- [ ] Plan preview UI (optional stretch)
-- [ ] Execution entity with DAG snapshot
+- [x] LLM-based objective → DAG generation
+- [x] DAG validation (acyclicity, agent/source mapping)
+- [x] Execution entity with DAG snapshot
 
 ### Workflow Engine
-- [ ] DAG topological execution
-- [ ] Parallel task scheduling (BullMQ)
-- [ ] Retries, timeouts, checkpointing
-- [ ] Progress SSE/WebSocket to frontend
-- [ ] Cancel research run
+- [x] DAG topological execution
+- [x] Parallel task scheduling (BullMQ)
+- [x] Retries, timeouts, checkpointing
+- [x] Progress SSE/polling to frontend
+- [x] Cancel research run
 
 ### Agent Manager + Core Agents
-- [ ] Agent registry and dispatch
-- [ ] Minimum viable agents: Market, Competitor, News, Web (generic)
-- [ ] LangGraph agent workflows
-- [ ] Agent health and failure handling
+- [x] Agent registry and dispatch
+- [x] All 12 PDF agents (Market through Trend)
+- [x] Agent health and failure handling
 
 ### Retrieval Layer
-- [ ] Web search (Tavily or Exa)
-- [ ] Website extraction (Firecrawl or Jina)
-- [ ] PDF/document upload parsing (Unstructured)
-- [ ] Source caching in S3
+- [x] Web search (Tavily/Exa)
+- [x] All PDF source types registered
+- [x] Arxiv, Wikipedia, GitHub live; others mock without API keys
+- [x] Source caching via S3
 
 ### Source Normalization
-- [ ] Document schema and persistence
-- [ ] Metadata extraction
-- [ ] Reliability heuristics
+- [x] Document schema and persistence
+- [x] Metadata extraction
+- [x] Reliability heuristics
 
 ### Evidence Stack (Moat #2)
-- [ ] Claim extraction from documents
-- [ ] Evidence linking (claim ↔ sources)
-- [ ] Fact verification (multi-source)
-- [ ] Contradiction detection (basic)
-- [ ] Confidence scoring
-- [ ] Citation formatting (APA + inline minimum)
+- [x] Claim extraction from documents
+- [x] Evidence linking (claim ↔ sources)
+- [x] Fact verification (multi-source)
+- [x] Contradiction detection
+- [x] Confidence scoring
+- [x] Citation formatting (APA, MLA, Chicago, IEEE, Bluebook)
 
 ### Output
-- [ ] Executive summary generation
-- [ ] Deep report generation
-- [ ] Export: PDF, Markdown, DOCX
-- [ ] Report viewer in frontend with citations
+- [x] Executive summary generation
+- [x] Deep report generation (all 10 output types)
+- [x] Export: PDF, Markdown, DOCX
+- [x] Report viewer in frontend with citations
 
 ### Supporting
-- [ ] Model Router (task-based routing)
-- [ ] Cost Optimizer (budget enforcement)
-- [ ] Prompt library for planner, agents, report writer
+- [x] Model Router (task-based routing, all model families)
+- [x] Cost Optimizer (budget enforcement)
+- [x] Prompt library for planner, agents, report writer
 
 ## Exit Criteria
 

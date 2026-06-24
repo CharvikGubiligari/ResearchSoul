@@ -208,6 +208,12 @@ export default function DashboardPage() {
                     {p.description && (
                       <p className="text-sm text-muted">{p.description}</p>
                     )}
+                    <Link
+                      href={`/projects/${p.id}/research/new`}
+                      className="text-xs text-primary hover:underline mt-1 inline-block"
+                    >
+                      + Start research
+                    </Link>
                   </div>
                   <span className="text-xs text-muted">
                     {new Date(p.updatedAt).toLocaleDateString()}
@@ -253,7 +259,7 @@ export default function DashboardPage() {
         </section>
 
         <p className="text-xs text-muted text-center">
-          Phase 0 foundation — research features arrive in Phase 1
+          Phase 1 MVP — autonomous research with evidence-backed reports
         </p>
       </main>
     </div>
